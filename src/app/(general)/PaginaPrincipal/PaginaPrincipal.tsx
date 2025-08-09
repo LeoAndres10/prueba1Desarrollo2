@@ -4,7 +4,15 @@ import { Preguntas } from "@/app/Modelos/Preguntas";
 import TriviaProvider, { useTrivia } from "@/app/Providers/TriviaProvider";
 import { useNavigate } from "react-router-dom";
 
-const preguntas: Preguntas[] = [
+
+
+export default function PaginaPrincipal() {
+  const [preguntas, setPreguntas] = useState<Preguntas[]>([]);
+  const [indiceActual, setIndiceActual] = useState(0);
+  const [seleccion, setSeleccion] = useState<boolean | null>(null);
+  const [respuestaCorrecta, setRespuestaCorrecta] = useState<boolean | null>(null);
+
+  const preguntass: Preguntas[] = [
   {
     id: "1",
     descripcion: "La vida es bonita?",
@@ -46,18 +54,11 @@ const preguntas: Preguntas[] = [
     puntajePregunta: 1,
   },
 ];
-
-export default function PaginaPrincipal() {
-  const [preguntas, setPreguntas] = useState<Preguntas[]>([]);
-  const [indiceActual, setIndiceActual] = useState(0);
-  const [seleccion, setSeleccion] = useState<boolean | null>(null);
-  const [respuestaCorrecta, setRespuestaCorrecta] = useState<boolean | null>(null);
-
   const contexto = useTrivia();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setPreguntas(preguntas);
+    setPreguntas(preguntass);
   }, []);
 
   if (!contexto) return null;

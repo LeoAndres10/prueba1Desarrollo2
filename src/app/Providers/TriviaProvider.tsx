@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
+'use client'
+import React, {useContext, useState } from "react";
 
 import { Plantilla } from "../Modelos/Plantilla";
 
@@ -20,12 +21,14 @@ export default function TriviaProvider({children}:Plantilla){
   };
 
   return (
+    <div>
     <ContextTrivia.Provider value={{ puntaje, respuesta, aumentarPuntaje, aumentarRespuesta, reiniciar }}>
       {children}
     </ContextTrivia.Provider>
+  </div>
   );
 }
 
-export function useTrivia(){
+export const useTrivia=()=>{
     return useContext(ContextTrivia)
 }

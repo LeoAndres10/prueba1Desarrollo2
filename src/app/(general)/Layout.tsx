@@ -1,3 +1,4 @@
+'use client'
 import TriviaProvider from "../Providers/TriviaProvider";
 import TriviaComponent from '@/app/Componentes/TriviaComponent'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,14 +16,10 @@ export default function Layout({
       
 
       <TriviaProvider>
-        <Router>
-           <TriviaComponent></TriviaComponent>
-        <Routes>
-            <Route path="/" element={<PaginaPrincipal />} />
-          <Route path="/results" element={<Resultados />} />
-          </Routes>
-            </Router>
-              {children}
+         <TriviaComponent/>
+        <PaginaPrincipal></PaginaPrincipal>
+        {children}
+              <Resultados></Resultados>
       </TriviaProvider>
      
     </div>

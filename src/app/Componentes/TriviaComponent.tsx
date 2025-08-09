@@ -1,8 +1,8 @@
 'use client'
-import React, { useContext } from "react";
+import React from "react";
 import { useTrivia } from "../Providers/TriviaProvider";
 
-const Header: React.FC = () => {
+export default function TriviaComponent() {
   const contexto = useTrivia();
 
   if (!contexto) return null;
@@ -17,4 +17,3 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
